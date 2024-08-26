@@ -22,17 +22,18 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <% projects.forEach(project => { %>
                 <div class="border p-4 rounded-lg shadow-lg bg-gray-800">
-                    <h2 class="text-xl font-semibold mb-2"><%= project.projectName %></h2>
+                    <h2 class="text-xl font-semibold mb-2"><%= project.project_name %></h2>
                     <div class="flex space-x-2">
                         <!-- Link to open the project in Coderoom -->
-                        <a href="/open/<%= project.projectName %>" class="border border-blue-700 bg-blue-700 text-black px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Open with Coderoom</a>
+                        <a href="/open/<%= project.project_name %>" class="border border-blue-700 bg-blue-700 text-black px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Open with Coderoom</a>
                         <!-- Form to delete the project -->
-                        <form action="/delete/<%= project.projectName %>" method="POST">
+                        <form action="/delete/<%= project.project_name %>" method="POST">
                             <button type="submit" class="border border-red-700 bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">Delete</button>
                         </form>
                     </div>
                 </div>
             <% }) %>
+            
         </div>
     </div>
 </body>
