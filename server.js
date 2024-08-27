@@ -10,10 +10,14 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 const { Pool } = require('pg');
-
 const pool = new Pool({
-    connectionString: process.env.POSTGRES_URL,
-  })
+    connectionString: process.env.DATABASE_URL || `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+
+
 
 
 app.use(express.static(path.join(__dirname, 'public')));
