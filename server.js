@@ -10,13 +10,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 const { Pool } = require('pg');
+
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'coderoom',
-    password: 'SyedSaad1114',
-    port: 5432,
-});
+    connectionString: process.env.POSTGRES_URL,
+  })
 
 
 app.use(express.static(path.join(__dirname, 'public')));
